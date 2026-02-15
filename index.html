@@ -6,51 +6,12 @@
 <title>SBFC Organization</title>
 
 <link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 <body>
 
-<!-- ================= NAVBAR ================= -->
-<header id="navbar">
-  <div class="navbar">
-
-    <div class="nav-left">
-      <img src="logo.png" alt="Logo">
-      <span>SBFC Organization</span>
-    </div>
-
-    <div class="nav-center">
-      Building Stronger Communities Together
-    </div>
-
-    <div class="nav-right">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-      <button class="donate-btn">Donate</button>
-    </div>
-
-  </div>
-</header>
-
-<!-- ================= HERO ================= -->
-<section class="hero" id="home">
-</section>
-
-<!-- ================= ABOUT ================= -->
-<section class="about" id="about">
-  <h2>About SBFC Organization</h2>
-  <p>
-    SBFC Organization is dedicated to building a better and stronger community.
-    We focus on education programs, social support, and impactful community initiatives.
-  </p>
-</section>
-
-<!-- ================= GALLERY ================= -->
+<!-- GALLERY -->
 <section class="gallery" id="gallery">
   <h2>Community Moments</h2>
 
@@ -64,36 +25,58 @@
   </div>
 </section>
 
+<!-- FULL SCREEN MODAL -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+
+  <div class="modal-content">
+
+    <div class="mySlides"><img src="gallery1.jpg"></div>
+    <div class="mySlides"><img src="gallery2.jpg"></div>
+    <div class="mySlides"><img src="gallery3.jpg"></div>
+    <div class="mySlides"><img src="gallery4.jpg"></div>
+    <div class="mySlides"><img src="gallery5.jpg"></div>
+    <div class="mySlides"><img src="gallery6.jpg"></div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+  </div>
+</div>
+
 <script>
+let slideIndex = 1;
+let autoSlideInterval;
+
+/* OPEN MODAL */
 function openModal() {
   document.getElementById("myModal").style.display = "block";
+  showSlides(slideIndex);
+  startAutoSlide();
 }
 
+/* CLOSE MODAL */
 function closeModal() {
   document.getElementById("myModal").style.display = "none";
+  stopAutoSlide();
 }
 
-let slideIndex = 1;
-let autoSlide;
-
-showSlides(slideIndex);
-
-/* Next / Previous */
+/* NEXT / PREV */
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-/* Thumbnail click */
+/* THUMB CLICK */
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-/* Main Show Function */
+/* MAIN SLIDE FUNCTION */
 function showSlides(n) {
   let slides = document.getElementsByClassName("mySlides");
 
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
 
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
@@ -102,104 +85,27 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "flex";
 }
 
-/* Auto Slide */
-function startAutoSlide(){
-  autoSlide = setInterval(() => {
+/* AUTO PLAY */
+function startAutoSlide() {
+  autoSlideInterval = setInterval(() => {
     plusSlides(1);
   }, 3000);
 }
 
-function stopAutoSlide(){
-  clearInterval(autoSlide);
+function stopAutoSlide() {
+  clearInterval(autoSlideInterval);
 }
 
-/* Start auto when modal opens */
-document.getElementById("myModal").addEventListener("click", startAutoSlide);
-
-/* Keyboard Navigation */
-document.addEventListener("keydown", function(e){
-  if(document.getElementById("myModal").style.display === "block"){
-    if(e.key === "ArrowRight"){
-      plusSlides(1);
-    }
-    if(e.key === "ArrowLeft"){
-      plusSlides(-1);
-    }
-    if(e.key === "Escape"){
-      closeModal();
-    }
+/* KEYBOARD SUPPORT */
+document.addEventListener("keydown", function(e) {
+  const modal = document.getElementById("myModal");
+  if (modal.style.display === "block") {
+    if (e.key === "ArrowRight") plusSlides(1);
+    if (e.key === "ArrowLeft") plusSlides(-1);
+    if (e.key === "Escape") closeModal();
   }
 });
-</script>
-</div>
-
-<!-- ================= FOOTER ================= -->
-<footer id="contact">
-  <div class="footer-container">
-
-    <div class="footer-box">
-      <h3>SBFC Organization</h3>
-      <p>Dedicated to building a better and stronger community.</p>
-    </div>
-
-    <div class="footer-box">
-      <h3>Quick Links</h3>
-      <a href="#">Home</a>
-      <a href="#">Gallery</a>
-      <a href="#">Notice</a>
-      <a href="#">Contact</a>
-    </div>
-
-    <div class="footer-box">
-      <h3>Contact Info</h3>
-      <p>114/2 Hazi Solimullah Road</p>
-      <p>Dhaka-1204</p>
-      <p>📞 +8801992500204</p>
-      <p>✉️ sbfcorgs@gmail.com</p>
-    </div>
-
-    <div class="footer-box">
-      <h3>Social Media</h3>
-      <p><i class="fab fa-facebook"></i> Facebook</p>
-      <p><i class="fab fa-youtube"></i> YouTube</p>
-      <p><i class="fab fa-instagram"></i> Instagram</p>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 SBFC Organization. All rights reserved.
-  </div>
-</footer>
-
-<script>
-window.addEventListener("scroll", function() {
-  document.getElementById("navbar").classList.toggle("sticky", window.scrollY > 50);
-});
-</script>
-
-<script>
-function openModal() { document.getElementById("myModal").style.display = "block"; }
-function closeModal() { document.getElementById("myModal").style.display = "none"; }
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) { showSlides(slideIndex += n); }
-function currentSlide(n) { showSlides(slideIndex = n); }
-
-function showSlides(n) {
-  let slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slides[slideIndex-1].style.display = "block";
-}
 </script>
 
 </body>
 </html>
-
-
