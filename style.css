@@ -76,7 +76,7 @@ body{
 
 /* HERO */
 .hero{
-  height:100vh;
+  height:70vh;
   margin-top:80px;
   background:url("hero.jpg") center center/cover no-repeat;
   animation:zoomEffect 8s ease-in-out infinite alternate;
@@ -88,7 +88,7 @@ body{
     background-size:100%;
   }
   100%{
-    background-size:110%;
+    background-size:100%;
   }
 }
 
@@ -199,4 +199,5 @@ footer{
   border-top:1px solid #333;
   padding-top:15px;
 }
+
 
