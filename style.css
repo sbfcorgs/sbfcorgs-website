@@ -145,7 +145,7 @@ body{
 }
 
 .mySlides img{
-  width:100%;
+  width:50%;
 }
 
 .close{
@@ -199,5 +199,6 @@ footer{
   border-top:1px solid #333;
   padding-top:15px;
 }
+
 
 
