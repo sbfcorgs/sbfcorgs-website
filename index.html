@@ -64,22 +64,73 @@
   </div>
 </section>
 
-<!-- MODAL SAME AS BEFORE -->
-<div id="myModal" class="modal">
-  <span class="close cursor" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
+<script>
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
 
-    <div class="mySlides"><img src="gallery1.jpg"></div>
-    <div class="mySlides"><img src="gallery2.jpg"></div>
-    <div class="mySlides"><img src="gallery3.jpg"></div>
-    <div class="mySlides"><img src="gallery4.jpg"></div>
-    <div class="mySlides"><img src="gallery5.jpg"></div>
-    <div class="mySlides"><img src="gallery6.jpg"></div>
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
 
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
+let slideIndex = 1;
+let autoSlide;
 
-  </div>
+showSlides(slideIndex);
+
+/* Next / Previous */
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+/* Thumbnail click */
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+/* Main Show Function */
+function showSlides(n) {
+  let slides = document.getElementsByClassName("mySlides");
+
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slides[slideIndex-1].style.display = "flex";
+}
+
+/* Auto Slide */
+function startAutoSlide(){
+  autoSlide = setInterval(() => {
+    plusSlides(1);
+  }, 3000);
+}
+
+function stopAutoSlide(){
+  clearInterval(autoSlide);
+}
+
+/* Start auto when modal opens */
+document.getElementById("myModal").addEventListener("click", startAutoSlide);
+
+/* Keyboard Navigation */
+document.addEventListener("keydown", function(e){
+  if(document.getElementById("myModal").style.display === "block"){
+    if(e.key === "ArrowRight"){
+      plusSlides(1);
+    }
+    if(e.key === "ArrowLeft"){
+      plusSlides(-1);
+    }
+    if(e.key === "Escape"){
+      closeModal();
+    }
+  }
+});
+</script>
 </div>
 
 <!-- ================= FOOTER ================= -->
@@ -150,4 +201,5 @@ function showSlides(n) {
 
 </body>
 </html>
+
 
