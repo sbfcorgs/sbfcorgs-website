@@ -100,20 +100,42 @@ body{background:#0f172a;color:white;overflow-x:hidden}
   color:white;font-size:18px;
 }
 
-/* ================= FOOTER ================= */
+/* ================= PREMIUM FOOTER ================= */
 
 footer {
+  position: relative;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #fff;
-  padding: 60px 8% 20px;
-  position: relative;
+  padding: 80px 8% 20px;
   overflow: hidden;
+}
+
+/* Wave */
+.footer-wave {
+  position: absolute;
+  top: -120px;
+  left: 0;
+  width: 100%;
+  animation: waveMove 8s infinite linear;
+}
+
+.footer-wave svg {
+  width: 100%;
+  height: 150px;
+}
+
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-40px); }
+  100% { transform: translateX(0); }
 }
 
 .footer-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .footer-box h3 {
@@ -124,13 +146,14 @@ footer {
 
 .footer-box h3::after {
   content: "";
-  width: 40px;
+  width: 50px;
   height: 3px;
   background: #00c6ff;
   position: absolute;
   left: 0;
   bottom: -6px;
   border-radius: 2px;
+  box-shadow: 0 0 10px #00c6ff;
 }
 
 .footer-box p,
@@ -145,9 +168,36 @@ footer {
 
 .footer-box a:hover {
   color: #00c6ff;
-  transform: translateX(5px);
+  transform: translateX(6px);
 }
 
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  transition: 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.social-icons a:hover {
+  background: #00c6ff;
+  box-shadow: 0 0 15px #00c6ff;
+  transform: translateY(-5px);
+}
+
+/* Bottom */
 .footer-bottom {
   text-align: center;
   margin-top: 40px;
@@ -155,18 +205,19 @@ footer {
   border-top: 1px solid rgba(255,255,255,0.2);
   font-size: 14px;
   color: #ccc;
+  position: relative;
+  z-index: 2;
 }
 
-/* Smooth Fade In Animation */
-
+/* Fade Animation */
 footer {
-  animation: footerFade 1.5s ease-in-out;
+  animation: fadeUp 1.5s ease-in-out;
 }
 
-@keyframes footerFade {
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
