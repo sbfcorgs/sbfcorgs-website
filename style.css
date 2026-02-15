@@ -137,11 +137,29 @@ body{
   height:100%;
   background:rgba(0,0,0,0.9);
 }
-
+/* MODAL FIXED SIZE */
 .modal-content{
   position:relative;
   margin:auto;
-  width:80%;
+  width:90%;
+  max-width:900px;
+  height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.mySlides{
+  display:none;
+  width:100%;
+  text-align:center;
+}
+
+.mySlides img{
+  max-width:100%;
+  max-height:80vh;
+  object-fit:contain;
+  border-radius:10px;
 }
 
 .mySlides img{
@@ -199,6 +217,7 @@ footer{
   border-top:1px solid #333;
   padding-top:15px;
 }
+
 
 
 
