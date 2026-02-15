@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
 
@@ -42,12 +43,11 @@
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero" id="home">
-</section>
+<!-- HERO -->
+<section class="hero"></section>
 
 <!-- GALLERY -->
-<section class="gallery reveal" id="gallery">
+<section class="gallery reveal">
   <h2>Community Moments</h2>
   <div class="gallery-container">
     <img src="gallery1.jpg" onclick="openModal();currentSlide(1)">
@@ -74,93 +74,24 @@
   </div>
 </div>
 
-<!-- UPDATES -->
-<section class="updates reveal">
-  <h2>Latest Updates</h2>
-  <div class="updates-container">
-    <div class="update-card">
-      <h3>Community Health Workshop</h3>
-      <p>Free health screening and wellness workshop.</p>
-    </div>
-    <div class="update-card">
-      <h3>Volunteer Appreciation Event</h3>
-      <p>Celebrating our amazing volunteers.</p>
-    </div>
-    <div class="update-card">
-      <h3>Educational Program Launch</h3>
-      <p>After-school tutoring program launch.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta reveal">
-  <h2>Make a Difference Today</h2>
-  <button class="donate-main">Donate Now</button>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer id="contact">
-
-  <!-- Animated Wave -->
-  <div class="footer-wave">
-    <svg viewBox="0 0 1440 320">
-      <path fill="#0f2027" fill-opacity="1"
-        d="M0,160L80,186.7C160,213,320,267,480,245.3C640,224,800,128,960,122.7C1120,117,1280,203,1360,245.3L1440,288V320H0Z">
-      </path>
-    </svg>
-  </div>
-
-  <div class="footer-container">
-
-    <div class="footer-box">
-      <h3>SBFC Organization</h3>
-      <p>Dedicated to building a better and stronger community.</p>
-    </div>
-
-    <div class="footer-box">
-      <h3>Quick Links</h3>
-      <a href="index.html">Home</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="#">Contact</a>
-    </div>
-
-    <div class="footer-box">
-      <h3>Contact Info</h3>
-      <p>114/2 Hazi Solimullah Road</p>
-      <p>Dhaka-1204</p>
-      <p>📞 +8801992500204</p>
-      <p>✉️ sbfcorgs@gmail.com</p>
-    </div>
-
-    <div class="footer-box">
-      <h3>Follow Us</h3>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-
-  </div>
-
+<!-- FOOTER -->
+<footer>
   <div class="footer-bottom">
     © 2026 SBFC Organization. All rights reserved.
   </div>
-
 </footer>
 
-/* LOADER */
+<!-- JAVASCRIPT -->
+<script>
+
 window.addEventListener("load",function(){
   document.getElementById("loader").style.display="none";
 });
 
-/* HAMBURGER */
 function toggleMenu(){
   document.getElementById("navMenu").classList.toggle("active");
 }
 
-/* SCROLL REVEAL */
 window.addEventListener("scroll",function(){
   document.querySelectorAll(".reveal").forEach(el=>{
     let top=el.getBoundingClientRect().top;
@@ -170,7 +101,6 @@ window.addEventListener("scroll",function(){
   });
 });
 
-/* GALLERY MODAL */
 let slideIndex=1,autoSlide;
 function openModal(){
   document.getElementById("myModal").style.display="block";
@@ -195,7 +125,3 @@ function showSlides(n){
 
 </body>
 </html>
-
-
-
-
