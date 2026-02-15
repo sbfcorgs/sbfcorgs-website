@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SBFC Organization</title>
-
 <link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,55 +14,61 @@
   <div class="container nav">
     <div class="logo">SBFC</div>
     <nav>
-      <a class="active" href="#">Home</a>
-      <a href="#">Mission</a>
-      <a href="#">Gallery</a>
-      <a href="#">Notice</a>
-      <a href="#">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#notice">Notice</a>
+      <a href="#contact">Contact</a>
       <button class="donate-btn">Donate Now</button>
     </nav>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="overlay"></div>
+<section class="hero" id="home">
   <div class="hero-content">
     <h1>Building Stronger Communities Together</h1>
-    <p>SBFC Organization is dedicated to creating positive change through education, empowerment, and community support.</p>
-    <button class="primary-btn">Join Our Mission →</button>
+    <p>Empowering lives through education, unity and community development.</p>
+    <button class="primary-btn">Join Our Mission</button>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats container">
-  <div class="card">
-    <h2>10,000+</h2>
-    <p>People Helped</p>
-  </div>
-  <div class="card">
-    <h2>500+</h2>
-    <p>Volunteers</p>
-  </div>
-  <div class="card">
-    <h2>50+</h2>
-    <p>Projects Completed</p>
-  </div>
-  <div class="card">
-    <h2>25+</h2>
-    <p>Communities Served</p>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
   <div class="container">
-    <h2>Make a Difference Today</h2>
-    <p>Your support helps us continue our mission and create lasting positive change.</p>
-    <div class="cta-buttons">
-      <button class="donate-btn">Donate Now</button>
-      <button class="secondary-btn">Get Involved</button>
+    <h2>Our Activities</h2>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644" alt="">
+      <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d" alt="">
+      <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a" alt="">
+      <img src="https://images.unsplash.com/photo-1515169067865-5387ec356754" alt="">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="">
+      <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6" alt="">
     </div>
+  </div>
+</section>
+
+<!-- NOTICE BOARD -->
+<section class="notice" id="notice">
+  <div class="container">
+    <h2>Latest Notices</h2>
+    <div class="notice-box">
+      <p>📢 Free Education Program Registration Open</p>
+      <p>📢 Winter Clothing Distribution – January 2026</p>
+      <p>📢 Volunteer Recruitment Ongoing</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="primary-btn">Send Message</button>
+    </form>
   </div>
 </section>
 
@@ -72,26 +76,23 @@
 <footer>
   <div class="footer-container">
 
-    <div class="footer-box">
+    <div>
       <h3>SBFC Organization</h3>
-      <p>
-        A social organization dedicated to making positive change in communities 
-        through education, support and empowerment.
-      </p>
+      <p>Dedicated to building a better and stronger community.</p>
     </div>
 
-    <div class="footer-box">
+    <div>
       <h3>Quick Links</h3>
-      <a href="#">Home</a>
-      <a href="#">Mission</a>
-      <a href="#">Gallery</a>
-      <a href="#">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#notice">Notice</a>
+      <a href="#contact">Contact</a>
     </div>
 
-    <div class="footer-box">
-      <h3>Contact</h3>
-      <p>114/2, Hazi Solimullah Road</p>
-      <p>East Shyampur, Dhaka-1204</p>
+    <div>
+      <h3>Contact Info</h3>
+      <p>114/2 Hazi Solimullah Road</p>
+      <p>Dhaka-1204</p>
       <p>📞 +8801992500204</p>
       <p>✉️ sbfcorgs@gmail.com</p>
     </div>
