@@ -11,10 +11,14 @@
 </head>
 <body>
 
+<!-- LOADER -->
+<div id="loader">
+  <div class="spinner"></div>
+</div>
+
 <!-- NAVBAR -->
 <header id="navbar">
   <div class="navbar">
-    
     <div class="nav-left">
       <img src="logo.png">
       <span>SBFC Organization</span>
@@ -26,23 +30,23 @@
 
     <div class="nav-right" id="navMenu">
       <a href="#">Home</a>
-      <a href="#">Gallery</a>
+      <a href="#gallery">Gallery</a>
       <a href="#">Notice</a>
       <a href="#">Contact</a>
-      <button class="donate-btn">Donate Now</button>
+      <button class="donate-btn">Donate</button>
     </div>
 
     <div class="hamburger" onclick="toggleMenu()">
       <i class="fas fa-bars"></i>
     </div>
-
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero"></section>
 
 <!-- GALLERY -->
-<section class="gallery">
+<section class="gallery reveal" id="gallery">
   <h2>Community Moments</h2>
   <div class="gallery-container">
     <img src="gallery1.jpg" onclick="openModal();currentSlide(1)">
@@ -70,27 +74,18 @@
 </div>
 
 <!-- UPDATES -->
-<section class="updates">
-  <div class="updates-header">
-    <h2>Latest Updates</h2>
-    <button class="view-all">View All →</button>
-  </div>
-
+<section class="updates reveal">
+  <h2>Latest Updates</h2>
   <div class="updates-container">
     <div class="update-card">
-      <span class="date">Feb 10, 2026</span>
       <h3>Community Health Workshop</h3>
       <p>Free health screening and wellness workshop.</p>
     </div>
-
     <div class="update-card">
-      <span class="date">Feb 5, 2026</span>
       <h3>Volunteer Appreciation Event</h3>
       <p>Celebrating our amazing volunteers.</p>
     </div>
-
     <div class="update-card">
-      <span class="date">Jan 28, 2026</span>
       <h3>Educational Program Launch</h3>
       <p>After-school tutoring program launch.</p>
     </div>
@@ -98,13 +93,9 @@
 </section>
 
 <!-- CTA -->
-<section class="cta">
+<section class="cta reveal">
   <h2>Make a Difference Today</h2>
-  <p>Your support helps us continue our mission.</p>
-  <div class="cta-buttons">
-    <button class="donate-main">Donate Now</button>
-    <button class="involve">Get Involved</button>
-  </div>
+  <button class="donate-main">Donate Now</button>
 </section>
 
 <!-- FOOTER -->
@@ -112,9 +103,8 @@
   <div class="footer-container">
     <div>
       <h3>SBFC Organization</h3>
-      <p>Dedicated to building a better and stronger community.</p>
+      <p>Dedicated to building stronger communities.</p>
     </div>
-
     <div>
       <h3>Quick Links</h3>
       <p>Home</p>
@@ -122,34 +112,44 @@
       <p>Notice</p>
       <p>Contact</p>
     </div>
-
     <div>
       <h3>Contact Info</h3>
-      <p>114/2 Hazi Solimullah Road</p>
       <p>Dhaka-1204</p>
-      <p>📞 +8801992500204</p>
-      <p>✉️ sbfcorgs@gmail.com</p>
+      <p>+8801992500204</p>
     </div>
-
     <div>
-      <h3>Social Media</h3>
+      <h3>Follow</h3>
       <div class="social-icons">
         <i class="fab fa-facebook-f"></i>
         <i class="fab fa-instagram"></i>
-        <i class="fab fa-twitter"></i>
       </div>
     </div>
-  </div>
-  <div class="copyright">
-    © 2026 SBFC Organization. All rights reserved.
   </div>
 </footer>
 
 <script>
+
+/* LOADER */
+window.addEventListener("load",function(){
+  document.getElementById("loader").style.display="none";
+});
+
+/* HAMBURGER */
 function toggleMenu(){
   document.getElementById("navMenu").classList.toggle("active");
 }
 
+/* SCROLL REVEAL */
+window.addEventListener("scroll",function(){
+  document.querySelectorAll(".reveal").forEach(el=>{
+    let top=el.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
+      el.classList.add("active");
+    }
+  });
+});
+
+/* GALLERY MODAL */
 let slideIndex=1,autoSlide;
 function openModal(){
   document.getElementById("myModal").style.display="block";
@@ -169,6 +169,7 @@ function showSlides(n){
   for(let i=0;i<slides.length;i++) slides[i].style.display="none";
   slides[slideIndex-1].style.display="flex";
 }
+
 </script>
 
 </body>
