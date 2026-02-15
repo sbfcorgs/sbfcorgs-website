@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBFC Gallery</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header id="navbar">
+  <div class="navbar">
+
+    <div class="nav-left">
+      <img src="logo.png" alt="Logo">
+      <span>SBFC Organization</span>
+    </div>
+
+    <div class="nav-center">
+      Community Gallery
+    </div>
+
+    <div class="nav-right">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="#">Contact</a>
+      <button class="donate-btn">Donate</button>
+    </div>
+
+  </div>
+</header>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery-page">
+  <h2>Community Moments</h2>
+
+  <div class="gallery-container">
+    <img src="gallery1.jpg" onclick="openModal();currentSlide(1)">
+    <img src="gallery2.jpg" onclick="openModal();currentSlide(2)">
+    <img src="gallery3.jpg" onclick="openModal();currentSlide(3)">
+    <img src="gallery4.jpg" onclick="openModal();currentSlide(4)">
+    <img src="gallery5.jpg" onclick="openModal();currentSlide(5)">
+    <img src="gallery6.jpg" onclick="openModal();currentSlide(6)">
+  </div>
+</section>
+
+<!-- ========== MODAL SLIDER ========== -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <img src="gallery1.jpg">
+    </div>
+
+    <div class="mySlides">
+      <img src="gallery2.jpg">
+    </div>
+
+    <div class="mySlides">
+      <img src="gallery3.jpg">
+    </div>
+
+    <div class="mySlides">
+      <img src="gallery4.jpg">
+    </div>
+
+    <div class="mySlides">
+      <img src="gallery5.jpg">
+    </div>
+
+    <div class="mySlides">
+      <img src="gallery6.jpg">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <h3>SBFC Organization</h3>
+      <p>Dedicated to building a better and stronger community.</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="footer-box">
+      <h3>Contact Info</h3>
+      <p>114/2 Hazi Solimullah Road</p>
+      <p>Dhaka-1204</p>
+      <p>📞 +8801992500204</p>
+      <p>✉️ sbfcorgs@gmail.com</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Social Media</h3>
+      <p><i class="fab fa-facebook"></i> Facebook</p>
+      <p><i class="fab fa-youtube"></i> YouTube</p>
+      <p><i class="fab fa-instagram"></i> Instagram</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 SBFC Organization. All rights reserved.
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+</script>
+
+</body>
+</html>
