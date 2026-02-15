@@ -77,51 +77,19 @@ body{
 /* HERO */
 .hero{
   height:100vh;
-  background:url("hero.jpg") center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
   margin-top:80px;
+  background:url("hero.jpg") center center/cover no-repeat;
+  animation:zoomEffect 8s ease-in-out infinite alternate;
 }
 
-.hero-overlay{
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-}
-
-.hero-content{
-  position:relative;
-  color:white;
-  max-width:700px;
-  animation:slideUp 1.5s ease;
-}
-
-@keyframes slideUp{
-  from{transform:translateY(50px); opacity:0;}
-  to{transform:translateY(0); opacity:1;}
-}
-
-.hero h1{
-  font-size:45px;
-  margin-bottom:20px;
-}
-
-.hero p{
-  font-size:18px;
-  margin-bottom:25px;
-}
-
-.primary-btn{
-  padding:12px 30px;
-  background:#0d6efd;
-  border:none;
-  color:white;
-  border-radius:6px;
-  cursor:pointer;
+/* Smooth Zoom Animation */
+@keyframes zoomEffect{
+  0%{
+    background-size:100%;
+  }
+  100%{
+    background-size:110%;
+  }
 }
 
 /* ABOUT */
@@ -231,3 +199,4 @@ footer{
   border-top:1px solid #333;
   padding-top:15px;
 }
+
