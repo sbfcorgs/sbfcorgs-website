@@ -11,6 +11,40 @@
 </head>
 <body>
 
+<!-- NAVBAR -->
+<header id="navbar">
+  <div class="navbar">
+    <div class="nav-left">
+      <img src="logo.png" alt="Logo">
+      <span>SBFC Organization</span>
+    </div>
+
+    <div class="nav-center">
+      Building Stronger Communities Together
+    </div>
+
+    <div class="nav-right">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <button class="donate-btn">Donate</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home"></section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <h2>About SBFC Organization</h2>
+  <p>
+    SBFC Organization is dedicated to building a better and stronger community.
+    We focus on education programs, social support, and impactful community initiatives.
+  </p>
+</section>
+
 <!-- GALLERY -->
 <section class="gallery" id="gallery">
   <h2>Community Moments</h2>
@@ -25,7 +59,7 @@
   </div>
 </section>
 
-<!-- FULL SCREEN MODAL -->
+<!-- MODAL -->
 <div id="myModal" class="modal">
   <span class="close" onclick="closeModal()">&times;</span>
 
@@ -44,34 +78,72 @@
   </div>
 </div>
 
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <h3>SBFC Organization</h3>
+      <p>Dedicated to building a better and stronger community.</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <a href="#">Home</a>
+      <a href="#">Gallery</a>
+      <a href="#">Notice</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="footer-box">
+      <h3>Contact Info</h3>
+      <p>114/2 Hazi Solimullah Road</p>
+      <p>Dhaka-1204</p>
+      <p>📞 +8801992500204</p>
+      <p>✉️ sbfcorgs@gmail.com</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Social Media</h3>
+      <p><i class="fab fa-facebook"></i> Facebook</p>
+      <p><i class="fab fa-youtube"></i> YouTube</p>
+      <p><i class="fab fa-instagram"></i> Instagram</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 SBFC Organization. All rights reserved.
+  </div>
+</footer>
+
 <script>
+window.addEventListener("scroll", function() {
+  document.getElementById("navbar").classList.toggle("sticky", window.scrollY > 50);
+});
+
 let slideIndex = 1;
 let autoSlideInterval;
 
-/* OPEN MODAL */
 function openModal() {
   document.getElementById("myModal").style.display = "block";
   showSlides(slideIndex);
   startAutoSlide();
 }
 
-/* CLOSE MODAL */
 function closeModal() {
   document.getElementById("myModal").style.display = "none";
   stopAutoSlide();
 }
 
-/* NEXT / PREV */
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-/* THUMB CLICK */
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-/* MAIN SLIDE FUNCTION */
 function showSlides(n) {
   let slides = document.getElementsByClassName("mySlides");
 
@@ -85,7 +157,6 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "flex";
 }
 
-/* AUTO PLAY */
 function startAutoSlide() {
   autoSlideInterval = setInterval(() => {
     plusSlides(1);
@@ -96,7 +167,6 @@ function stopAutoSlide() {
   clearInterval(autoSlideInterval);
 }
 
-/* KEYBOARD SUPPORT */
 document.addEventListener("keydown", function(e) {
   const modal = document.getElementById("myModal");
   if (modal.style.display === "block") {
