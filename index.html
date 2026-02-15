@@ -6,14 +6,16 @@
 <title>SBFC Organization</title>
 
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 <body>
 
 <!-- ================= NAVBAR ================= -->
-<header>
+<header id="navbar">
   <div class="navbar">
 
     <div class="nav-left">
@@ -27,10 +29,10 @@
 
     <div class="nav-right">
       <a href="#home">Home</a>
+      <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
-      <a href="#notice">Notice</a>
       <a href="#contact">Contact</a>
-      <button class="donate-btn">Donate Now</button>
+      <button class="donate-btn">Donate</button>
     </div>
 
   </div>
@@ -38,55 +40,39 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="home">
-  <h1>Empowering Lives Through Unity & Development</h1>
-  <p>We work for community growth, education, and support.</p>
-  <button class="primary-btn">Join Our Mission</button>
+  <div class="hero-content">
+    <h1>Empowering Lives Through Unity & Development</h1>
+    <p>Together we create positive change in our community.</p>
+    <button class="primary-btn">Join Our Mission</button>
+  </div>
 </section>
 
-<!-- ================= BIG CENTER SECTION ================= -->
-<section class="about">
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
   <h2>About SBFC Organization</h2>
   <p>
     SBFC Organization is dedicated to building a better and stronger community.
-    We organize educational programs, social support initiatives, and community events
-    to empower people and create positive change.
+    We focus on education programs, social support, and impactful community initiatives.
   </p>
 </section>
 
 <!-- ================= GALLERY ================= -->
 <section class="gallery" id="gallery">
-  <h2>Our Gallery</h2>
+  <h2>Community Moments</h2>
   <div class="gallery-container">
 
-    <div class="gallery-item">
-      <img src="gallery1.jpg">
-    </div>
-
-    <div class="gallery-item">
-      <img src="gallery2.jpg">
-    </div>
-
-    <div class="gallery-item">
-      <img src="gallery3.jpg">
-    </div>
-
-    <div class="gallery-item">
-      <img src="gallery4.jpg">
-    </div>
-
-    <div class="gallery-item">
-      <img src="gallery5.jpg">
-    </div>
-
-    <div class="gallery-item">
-      <img src="gallery6.jpg">
-    </div>
+    <div class="gallery-item"><img src="gallery1.jpg"></div>
+    <div class="gallery-item"><img src="gallery2.jpg"></div>
+    <div class="gallery-item"><img src="gallery3.jpg"></div>
+    <div class="gallery-item"><img src="gallery4.jpg"></div>
+    <div class="gallery-item"><img src="gallery5.jpg"></div>
+    <div class="gallery-item"><img src="gallery6.jpg"></div>
 
   </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer>
+<footer id="contact">
   <div class="footer-container">
 
     <div class="footer-box">
@@ -123,6 +109,12 @@
     © 2026 SBFC Organization. All rights reserved.
   </div>
 </footer>
+
+<script>
+window.addEventListener("scroll", function() {
+  document.getElementById("navbar").classList.toggle("sticky", window.scrollY > 50);
+});
+</script>
 
 </body>
 </html>
