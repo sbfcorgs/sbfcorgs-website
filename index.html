@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
@@ -40,6 +39,8 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="home">
+  <div class="hero-overlay"></div>
+
   <div class="hero-content">
     <h1>Empowering Lives Through Unity & Development</h1>
     <p>Together we create positive change in our community.</p>
@@ -70,42 +71,23 @@
   </div>
 </section>
 
-<!-- ========== MODAL SLIDER ========== -->
+<!-- MODAL SAME AS BEFORE -->
 <div id="myModal" class="modal">
   <span class="close cursor" onclick="closeModal()">&times;</span>
-
   <div class="modal-content">
 
-    <div class="mySlides">
-      <img src="gallery1.jpg">
-    </div>
-
-    <div class="mySlides">
-      <img src="gallery2.jpg">
-    </div>
-
-    <div class="mySlides">
-      <img src="gallery3.jpg">
-    </div>
-
-    <div class="mySlides">
-      <img src="gallery4.jpg">
-    </div>
-
-    <div class="mySlides">
-      <img src="gallery5.jpg">
-    </div>
-
-    <div class="mySlides">
-      <img src="gallery6.jpg">
-    </div>
+    <div class="mySlides"><img src="gallery1.jpg"></div>
+    <div class="mySlides"><img src="gallery2.jpg"></div>
+    <div class="mySlides"><img src="gallery3.jpg"></div>
+    <div class="mySlides"><img src="gallery4.jpg"></div>
+    <div class="mySlides"><img src="gallery5.jpg"></div>
+    <div class="mySlides"><img src="gallery6.jpg"></div>
 
     <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a>
 
   </div>
 </div>
-</section>
 
 <!-- ================= FOOTER ================= -->
 <footer id="contact">
@@ -151,38 +133,27 @@ window.addEventListener("scroll", function() {
   document.getElementById("navbar").classList.toggle("sticky", window.scrollY > 50);
 });
 </script>
-<script>
-function openModal() {
-  document.getElementById("myModal").style.display = "block";
-}
 
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-}
+<script>
+function openModal() { document.getElementById("myModal").style.display = "block"; }
+function closeModal() { document.getElementById("myModal").style.display = "none"; }
 
 let slideIndex = 1;
 showSlides(slideIndex);
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+function plusSlides(n) { showSlides(slideIndex += n); }
+function currentSlide(n) { showSlides(slideIndex = n); }
 
 function showSlides(n) {
-  let i;
   let slides = document.getElementsByClassName("mySlides");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
+  for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
   slides[slideIndex-1].style.display = "block";
 }
 </script>
+
 </body>
 </html>
-
-
