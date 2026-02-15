@@ -37,7 +37,7 @@ header{
 /* LEFT LOGO */
 .logo-box{
   display:flex;
-  align-items:center;
+  align-items:left;
   gap:15px;
 }
 
@@ -49,11 +49,18 @@ header{
   font-size:20px;
   color:#1e3c72;
 }
+/* BIG CENTER TITLE */
+.top-banner{
+  text-align:center;
+  padding:40px 20px;
+  background:linear-gradient(135deg,#1e3c72,#2a5298);
+  color:white;
+}
 
 /* RIGHT MENU */
 nav{
   display:flex;
-  align-items:center;
+  align-items:right;
 }
 
 nav a{
@@ -83,13 +90,6 @@ nav a:hover{
   transform:scale(1.05);
 }
 
-/* BIG CENTER TITLE */
-.top-banner{
-  text-align:center;
-  padding:40px 20px;
-  background:linear-gradient(135deg,#1e3c72,#2a5298);
-  color:white;
-}
 
 .top-banner h1{
   font-size:38px;
@@ -193,3 +193,4 @@ footer{
   from{transform:translateY(-100%);}
   to{transform:translateY(0);}
 }
+
