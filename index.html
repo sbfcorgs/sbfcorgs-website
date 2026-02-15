@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 <body>
 
@@ -31,7 +30,7 @@
 
     <div class="nav-right" id="navMenu">
       <a href="#">Home</a>
-      <a href="gallery.html">Gallery</a>
+      <a href="#gallery">Gallery</a>
       <a href="#">Notice</a>
       <a href="#">Contact</a>
       <button class="donate-btn">Donate</button>
@@ -47,7 +46,7 @@
 <section class="hero"></section>
 
 <!-- GALLERY -->
-<section class="gallery reveal">
+<section class="gallery reveal" id="gallery">
   <h2>Community Moments</h2>
   <div class="gallery-container">
     <img src="gallery1.jpg" onclick="openModal();currentSlide(1)">
@@ -74,24 +73,73 @@
   </div>
 </div>
 
+<!-- UPDATES -->
+<section class="updates reveal">
+  <h2>Latest Updates</h2>
+  <div class="updates-container">
+    <div class="update-card">
+      <h3>Community Health Workshop</h3>
+      <p>Free health screening and wellness workshop.</p>
+    </div>
+    <div class="update-card">
+      <h3>Volunteer Appreciation Event</h3>
+      <p>Celebrating our amazing volunteers.</p>
+    </div>
+    <div class="update-card">
+      <h3>Educational Program Launch</h3>
+      <p>After-school tutoring program launch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta reveal">
+  <h2>Make a Difference Today</h2>
+  <button class="donate-main">Donate Now</button>
+</section>
+
 <!-- FOOTER -->
 <footer>
-  <div class="footer-bottom">
-    © 2026 SBFC Organization. All rights reserved.
+  <div class="footer-container">
+    <div>
+      <h3>SBFC Organization</h3>
+      <p>Dedicated to building stronger communities.</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <p>Home</p>
+      <p>Gallery</p>
+      <p>Notice</p>
+      <p>Contact</p>
+    </div>
+    <div>
+      <h3>Contact Info</h3>
+      <p>Dhaka-1204</p>
+      <p>+8801992500204</p>
+    </div>
+    <div>
+      <h3>Follow</h3>
+      <div class="social-icons">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+    </div>
   </div>
 </footer>
 
-<!-- JAVASCRIPT -->
 <script>
 
+/* LOADER */
 window.addEventListener("load",function(){
   document.getElementById("loader").style.display="none";
 });
 
+/* HAMBURGER */
 function toggleMenu(){
   document.getElementById("navMenu").classList.toggle("active");
 }
 
+/* SCROLL REVEAL */
 window.addEventListener("scroll",function(){
   document.querySelectorAll(".reveal").forEach(el=>{
     let top=el.getBoundingClientRect().top;
@@ -101,6 +149,7 @@ window.addEventListener("scroll",function(){
   });
 });
 
+/* GALLERY MODAL */
 let slideIndex=1,autoSlide;
 function openModal(){
   document.getElementById("myModal").style.display="block";
