@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
-/* ================= RESET ================= */
 *{
 margin:0;
 padding:0;
@@ -34,7 +32,6 @@ background:linear-gradient(135deg,rgba(0,0,0,0.75),rgba(0,0,0,0.5));
 z-index:-1;
 }
 
-/* ================= GLASS ================= */
 .glass{
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(15px);
@@ -43,7 +40,6 @@ border-radius:20px;
 box-shadow:0 8px 32px rgba(0,0,0,0.4);
 }
 
-/* ================= NAVBAR ================= */
 header{
 position:fixed;
 width:100%;
@@ -95,7 +91,6 @@ font-size:24px;
 cursor:pointer;
 }
 
-/* ================= HERO ================= */
 .hero{
 height:100vh;
 display:flex;
@@ -127,9 +122,10 @@ background:linear-gradient(45deg,#ff6b00,#ff0066);
 text-decoration:none;
 color:white;
 font-weight:600;
+display:inline-block;
+margin:5px;
 }
 
-/* ================= SECTION ================= */
 section{
 padding:100px 8%;
 text-align:center;
@@ -140,7 +136,16 @@ font-size:40px;
 margin-bottom:30px;
 }
 
-/* ================= GALLERY ================= */
+.grid-3{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+padding:30px;
+}
+
 .gallery-container{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -153,7 +158,6 @@ border-radius:15px;
 cursor:pointer;
 }
 
-/* ================= MODAL ================= */
 .modal{
 display:none;
 position:fixed;
@@ -183,7 +187,6 @@ font-size:40px;
 cursor:pointer;
 }
 
-/* ================= FOOTER ================= */
 footer{
 margin-top:80px;
 background:rgba(0,0,0,0.7);
@@ -213,9 +216,7 @@ text-align:center;
 font-size:14px;
 }
 
-/* ================= RESPONSIVE ================= */
 @media(max-width:768px){
-
 .nav-links{
 position:absolute;
 top:70px;
@@ -226,24 +227,15 @@ padding:20px;
 border-radius:15px;
 display:none;
 }
-
-.nav-links.active{
-display:flex;
+.nav-links.active{display:flex;}
+.hamburger{display:block;}
 }
-
-.hamburger{
-display:block;
-}
-
-}
-
 </style>
 </head>
 <body>
 
 <header class="glass">
 <div class="navbar">
-
 <div class="nav-left">
 <img src="images/logo.png" alt="SBFC Logo">
 <span>SBFC Organization</span>
@@ -251,6 +243,9 @@ display:block;
 
 <div class="nav-links" id="navLinks">
 <a href="#home">Home</a>
+<a href="#mission">Mission</a>
+<a href="#impact">Impact</a>
+<a href="#updates">Updates</a>
 <a href="#gallery">Gallery</a>
 <a href="notice.html">Notice</a>
 <a href="#contact">Contact</a>
@@ -260,7 +255,6 @@ display:block;
 <div class="hamburger" onclick="toggleMenu()">
 <i class="fas fa-bars"></i>
 </div>
-
 </div>
 </header>
 
@@ -269,6 +263,39 @@ display:block;
 <h1>Welcome to SBFC Organization</h1>
 <p>We work together to create opportunities, empower youth, and build stronger communities.</p>
 <a href="#gallery" class="btn">Explore More</a>
+</div>
+</section>
+
+<section id="mission">
+<h2>Our Mission</h2>
+<div class="glass card">
+<p>Our mission is to empower individuals, support community development, and create opportunities that foster growth, education, and unity.</p>
+</div>
+</section>
+
+<section id="impact">
+<h2>Our Impact</h2>
+<div class="grid-3">
+<div class="glass card">
+<h3>Community Support</h3>
+<p>Providing essential support and assistance to families in need.</p>
+</div>
+<div class="glass card">
+<h3>Youth Empowerment</h3>
+<p>Organizing programs that build skills and leadership among youth.</p>
+</div>
+<div class="glass card">
+<h3>Social Initiatives</h3>
+<p>Running initiatives that promote unity, education, and positive change.</p>
+</div>
+</div>
+</section>
+
+<section id="updates">
+<h2>Latest Updates</h2>
+<div class="glass card">
+<p>Stay tuned for our latest activities, events, and announcements that continue to make a difference in our community.</p>
+<a href="notice.html" class="btn">View Notices</a>
 </div>
 </section>
 
@@ -284,6 +311,15 @@ display:block;
 </div>
 </section>
 
+<section>
+<h2>Make a Difference Today</h2>
+<div class="glass card">
+<p>Your support helps us continue our mission and create lasting positive change in our community.</p>
+<a href="donation.html" class="btn">Donate Now</a>
+<a href="#contact" class="btn">Get Involved</a>
+</div>
+</section>
+
 <div id="myModal" class="modal">
 <span class="close" onclick="closeModal()">&times;</span>
 <div class="modal-content">
@@ -292,9 +328,7 @@ display:block;
 </div>
 
 <footer id="contact">
-
 <div class="footer-container">
-
 <div>
 <h3>SBFC Organization</h3>
 <p>Dedicated to building stronger communities and empowering people.</p>
@@ -303,6 +337,9 @@ display:block;
 <div>
 <h3>Quick Links</h3>
 <a href="#home">Home</a><br>
+<a href="#mission">Mission</a><br>
+<a href="#impact">Impact</a><br>
+<a href="#updates">Updates</a><br>
 <a href="#gallery">Gallery</a><br>
 <a href="notice.html">Notice</a><br>
 <a href="#contact">Contact</a>
@@ -323,30 +360,24 @@ display:block;
 <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
 </div>
 </div>
-
 </div>
 
 <div class="footer-bottom">
-© 1998 SBFC Organization | All Rights Reserved
+© 2026 SBFC Organization | All Rights Reserved
 </div>
-
 </footer>
 
 <script>
-
 function toggleMenu(){
 document.getElementById("navLinks").classList.toggle("active");
 }
-
 function openModal(src){
 document.getElementById("myModal").style.display="block";
 document.getElementById("modalImg").src=src;
 }
-
 function closeModal(){
 document.getElementById("myModal").style.display="none";
 }
-
 </script>
 
 </body>
