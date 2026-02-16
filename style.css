@@ -105,6 +105,19 @@ body{background:#0f172a;color:white;overflow-x:hidden}
 footer{padding:80px 10%;background:#020617;}
 .footer-container{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;}
 .social-icons i{margin-right:10px;background:rgba(255,255,255,0.1);padding:10px;border-radius:50%;}
+.footer-box p {
+  margin-bottom: 10px;
+  color: #ddd;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-box i {
+  color: #00c6ff;
+  min-width: 18px;
+}
 
 /* RESPONSIVE */
 @media(max-width:992px){
@@ -126,4 +139,5 @@ footer{padding:80px 10%;background:#020617;}
   .gallery-container{grid-template-columns:1fr;}
   .footer-container{grid-template-columns:1fr;}
 }
+
 
