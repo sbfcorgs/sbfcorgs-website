@@ -227,9 +227,18 @@ function showSlides(n){
   for(let i=0;i<slides.length;i++) slides[i].style.display="none";
   slides[slideIndex-1].style.display="flex";
 }
-
+/* PROGRESS BAR */
+window.onscroll = function () {
+  let winScroll = document.documentElement.scrollTop;
+  let height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+  let scrolled = (winScroll / height) * 100;
+  document.getElementById("progressBar").style.width = scrolled + "%";
+};
 </script>
 
 </body>
 </html>
+
 
