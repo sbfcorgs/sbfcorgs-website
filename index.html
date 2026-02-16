@@ -5,36 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SBFC Organization</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* RESET */
+/* ===== RESET ===== */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
   font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
 }
 
 body{
   background:url("images/hero.jpg") no-repeat center center/cover;
-  min-height:100vh;
   color:white;
+  min-height:100vh;
   overflow-x:hidden;
 }
 
-/* DARK OVERLAY */
+/* Overlay */
 body::before{
   content:"";
   position:fixed;
   width:100%;
   height:100%;
-  background:linear-gradient(135deg,rgba(0,0,0,0.6),rgba(0,0,0,0.4));
+  background:linear-gradient(135deg,rgba(0,0,0,0.7),rgba(0,0,0,0.4));
   z-index:-1;
 }
 
-/* GLASS EFFECT BASE */
+/* ===== GLASS EFFECT ===== */
 .glass{
   background:rgba(255,255,255,0.08);
   backdrop-filter:blur(15px);
@@ -44,7 +45,7 @@ body::before{
   border-radius:20px;
 }
 
-/* NAVBAR */
+/* ===== NAVBAR ===== */
 .navbar{
   position:fixed;
   top:20px;
@@ -64,11 +65,14 @@ body::before{
   font-weight:700;
 }
 
+.nav-links{
+  display:flex;
+}
+
 .nav-links a{
   text-decoration:none;
   color:white;
   margin-left:25px;
-  font-weight:500;
   transition:0.3s;
 }
 
@@ -76,7 +80,7 @@ body::before{
   color:#ffcc00;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
   height:100vh;
   display:flex;
@@ -89,19 +93,16 @@ body::before{
 .hero-box{
   padding:60px;
   max-width:900px;
-  animation:fadeUp 1.8s ease forwards;
 }
 
 .hero-box h1{
   font-size:60px;
-  font-weight:800;
   margin-bottom:20px;
 }
 
 .hero-box p{
-  font-size:22px;
+  font-size:20px;
   margin-bottom:30px;
-  line-height:1.6;
 }
 
 .btn{
@@ -118,29 +119,79 @@ body::before{
   transform:translateY(-5px);
 }
 
-/* SECTION */
-.section{
+/* ===== SECTION ===== */
+section{
   padding:100px 20px;
   display:flex;
   justify-content:center;
 }
 
 .section-box{
-  max-width:1000px;
-  padding:50px;
+  max-width:1100px;
+  padding:60px;
   text-align:center;
 }
 
-/* ANIMATION */
-@keyframes fadeUp{
-  0%{
-    opacity:0;
-    transform:translateY(50px);
-  }
-  100%{
-    opacity:1;
-    transform:translateY(0);
-  }
+/* Services Grid */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
+
+.service-card{
+  padding:30px;
+}
+
+/* Gallery */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:40px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:15px;
+}
+
+/* Contact */
+.contact form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  margin-top:30px;
+}
+
+.contact input,
+.contact textarea{
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  outline:none;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:20px;
+  margin-top:40px;
+  font-size:14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+
+.hero-box h1{
+  font-size:35px;
+}
+
+.nav-links{
+  display:none;
+}
+
 }
 
 </style>
@@ -151,33 +202,72 @@ body::before{
 <div class="navbar glass">
   <div class="logo">SBFC Organization</div>
   <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="#">Gallery</a>
-    <a href="#">Notice</a>
-    <a href="#">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
   </div>
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="home">
   <div class="hero-box glass">
     <h1>Welcome to SBFC Organization</h1>
-    <p>
-      We work together to create opportunities, empower youth, and build stronger communities.
-    </p>
-    <a href="#" class="btn">Explore More</a>
+    <p>Empowering youth. Building community. Creating change.</p>
+    <a href="#about" class="btn">Learn More</a>
   </div>
 </section>
 
-<!-- SECOND GLASS SECTION -->
-<section class="section">
+<!-- ABOUT -->
+<section id="about">
   <div class="section-box glass">
-    <h2>Our Mission</h2>
-    <p>
-      Our mission is to empower communities, support youth development, and create sustainable growth through unity and action.
-    </p>
+    <h2>About Us</h2>
+    <p>SBFC Organization works to empower communities and provide opportunities for growth and unity.</p>
   </div>
 </section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-box glass">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service-card glass">Youth Development</div>
+      <div class="service-card glass">Community Support</div>
+      <div class="service-card glass">Training Programs</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-box glass">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="images/gallery1.jpg">
+      <img src="images/gallery2.jpg">
+      <img src="images/gallery3.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-box glass contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Your Email">
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="glass">
+  © 2026 SBFC Organization | All Rights Reserved
+</footer>
 
 </body>
 </html>
