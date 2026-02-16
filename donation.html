@@ -3,35 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Donate - SBFC Organization</title>
-<link rel="stylesheet" href="css/style.css">
+<title>Donate | SBFC Organization</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(-45deg,#0f0f0f,#1c1c1c,#141414,#222);
+background-size:400% 400%;
+animation:gradientMove 12s ease infinite;
+color:white;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+header{
+background:rgba(0,0,0,0.8);
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+}
+
+header a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+.container{
+padding:80px 8%;
+text-align:center;
+}
+
+h1{
+font-size:45px;
+margin-bottom:15px;
+font-weight:800;
+}
+
+.glass{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+padding:60px;
+border-radius:30px;
+margin-top:40px;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.counter-box{
+margin-bottom:40px;
+}
+
+.counter-box h2{
+font-size:20px;
+opacity:0.8;
+}
+
+.counter{
+font-size:40px;
+font-weight:700;
+color:#ff6b00;
+margin-top:10px;
+}
+
+.amount-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-top:25px;
+}
+
+.amount-buttons button{
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.2);
+padding:10px 20px;
+border-radius:30px;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.amount-buttons button:hover{
+background:linear-gradient(45deg,#ff6b00,#ff0066);
+}
+
+form{
+margin-top:40px;
+display:grid;
+gap:20px;
+}
+
+input,select,textarea{
+padding:14px;
+border:none;
+border-radius:12px;
+outline:none;
+}
+
+.main-btn{
+background:linear-gradient(45deg,#ff6b00,#ff0066);
+color:white;
+border:none;
+border-radius:40px;
+padding:15px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.main-btn:hover{
+opacity:0.9;
+transform:scale(1.03);
+}
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.popup-content{
+background:#111;
+padding:50px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 0 50px rgba(255,0,100,0.6);
+animation:pop 0.4s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(0.7);}
+100%{transform:scale(1);}
+}
+
+.close-btn{
+margin-top:20px;
+}
+
+.back{
+margin-top:40px;
+display:inline-block;
+color:#ffcc00;
+text-decoration:none;
+}
+</style>
 </head>
 <body>
 
-<section class="donation-wrapper">
-  <h2>Support Our Mission</h2>
+<header>
+<div><strong>SBFC Organization</strong></div>
+<div>
+<a href="index.html">Home</a>
+<a href="notice.html">Notice</a>
+</div>
+</header>
 
-  <form class="donation-form">
-    <input type="text" placeholder="Full Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <input type="number" placeholder="Donation Amount" required>
+<div class="container">
 
-    <select required>
-      <option value="">Select Payment Method</option>
-      <option>bKash</option>
-      <option>Nagad</option>
-      <option>Bank Transfer</option>
-    </select>
+<h1>Make a Difference Today</h1>
+<p>Your support helps us continue our mission and create lasting positive change.</p>
 
-    <button type="submit">Donate Now</button>
-  </form>
+<div class="glass">
 
-  <div class="payment-methods">
-    <div class="payment-card">bKash</div>
-    <div class="payment-card">Nagad</div>
-    <div class="payment-card">Bank</div>
-  </div>
-</section>
+<div class="counter-box">
+<h2>Total Donations Raised</h2>
+<div class="counter" id="donationCounter">৳ 0</div>
+</div>
+
+<h2>Select Amount</h2>
+
+<div class="amount-buttons">
+<button onclick="setAmount(500)">৳ 500</button>
+<button onclick="setAmount(1000)">৳ 1000</button>
+<button onclick="setAmount(5000)">৳ 5000</button>
+<button onclick="setAmount('')">Custom</button>
+</div>
+
+<form onsubmit="handleDonate(event)">
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="number" id="amount" placeholder="Donation Amount (BDT)" required>
+
+<select required>
+<option value="">Select Payment Method</option>
+<option>bKash</option>
+<option>Nagad</option>
+<option>Bank Transfer</option>
+</select>
+
+<textarea rows="4" placeholder="Message (Optional)"></textarea>
+
+<button type="submit" class="main-btn">Donate Now</button>
+</form>
+
+</div>
+
+<a href="index.html" class="back">← Back to Home</a>
+
+</div>
+
+<div class="popup" id="popup">
+<div class="popup-content">
+<h2>Thank You ❤️</h2>
+<p>Your donation has been recorded successfully.</p>
+<button class="main-btn close-btn" onclick="closePopup()">Close</button>
+</div>
+</div>
+
+<script>
+let totalDonation = 150000;
+
+function updateCounter(){
+document.getElementById("donationCounter").innerText = "৳ " + totalDonation.toLocaleString();
+}
+updateCounter();
+
+function setAmount(value){
+document.getElementById("amount").value=value;
+}
+
+function handleDonate(e){
+e.preventDefault();
+let amount = parseInt(document.getElementById("amount").value);
+if(amount && amount > 0){
+totalDonation += amount;
+updateCounter();
+}
+document.getElementById("popup").style.display="flex";
+e.target.reset();
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+</script>
 
 </body>
 </html>
