@@ -5,236 +5,179 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SBFC Organization</title>
 
-<!-- Correct CSS Path -->
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
+body{
+  background:url("images/hero.jpg") no-repeat center center/cover;
+  min-height:100vh;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* DARK OVERLAY */
+body::before{
+  content:"";
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:linear-gradient(135deg,rgba(0,0,0,0.6),rgba(0,0,0,0.4));
+  z-index:-1;
+}
+
+/* GLASS EFFECT BASE */
+.glass{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.2);
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
+  border-radius:20px;
+}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  max-width:1200px;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:700;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:white;
+  margin-left:25px;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#ffcc00;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.hero-box{
+  padding:60px;
+  max-width:900px;
+  animation:fadeUp 1.8s ease forwards;
+}
+
+.hero-box h1{
+  font-size:60px;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.hero-box p{
+  font-size:22px;
+  margin-bottom:30px;
+  line-height:1.6;
+}
+
+.btn{
+  padding:12px 30px;
+  border-radius:40px;
+  background:linear-gradient(45deg,#ff6b00,#ff0066);
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+  transition:0.4s;
+}
+
+.btn:hover{
+  transform:translateY(-5px);
+}
+
+/* SECTION */
+.section{
+  padding:100px 20px;
+  display:flex;
+  justify-content:center;
+}
+
+.section-box{
+  max-width:1000px;
+  padding:50px;
+  text-align:center;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  0%{
+    opacity:0;
+    transform:translateY(50px);
+  }
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+</style>
 </head>
 <body>
 
-<!-- ================= PROGRESS BAR ================= -->
-<div id="progressBar"></div>
-
-<!-- ================= LOADER ================= -->
-<div id="loader">
-  <div class="spinner"></div>
-</div>
-
-<!-- ================= NAVBAR ================= -->
-<header id="navbar">
-  <div class="navbar">
-    
-    <div class="nav-left">
-      <img src="images/logo.png" alt="SBFC Logo">
-      <span>SBFC Organization</span>
-    </div>
-
-    <div class="nav-center">
-       <h1>Welcome to SBFC Organization</h1>
-      Building Stronger Communities Together
-       <p>We work together to create opportunities, empower youth, and build stronger communities.</p>
-    </div>
-
-    <div class="nav-right" id="navMenu">
-      <a href="#home">Home</a>
-      <a href="#gallery">Gallery</a>
-      <a href="notice.html">Notice</a>
-      <a href="#contact">Contact</a>
-      <a href="donation.html" class="donate-btn">Donate</a>
-    </div>
-
-    <div class="hamburger" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i>
-    </div>
-
-  </div>
-</header>
-
-<!-- ================= HERO ================= -->
-<section class="hero" id="home"></section>
-
-<!-- ================= GALLERY ================= -->
-<section class="gallery reveal" id="gallery">
-  <h2>Community Moments</h2>
-  <div class="gallery-container">
-    <img src="images/gallery1.jpg" alt="Community Event 1" onclick="openModal();currentSlide(1)">
-    <img src="images/gallery2.jpg" alt="Community Event 2" onclick="openModal();currentSlide(2)">
-    <img src="images/gallery3.jpg" alt="Community Event 3" onclick="openModal();currentSlide(3)">
-    <img src="images/gallery4.jpg" alt="Community Event 4" onclick="openModal();currentSlide(4)">
-    <img src="images/gallery5.jpg" alt="Community Event 5" onclick="openModal();currentSlide(5)">
-    <img src="images/gallery6.jpg" alt="Community Event 6" onclick="openModal();currentSlide(6)">
-  </div>
-</section>
-
-<!-- ================= MODAL ================= -->
-<div id="myModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
-
-    <div class="mySlides"><img src="images/gallery1.jpg" alt=""></div>
-    <div class="mySlides"><img src="images/gallery2.jpg" alt=""></div>
-    <div class="mySlides"><img src="images/gallery3.jpg" alt=""></div>
-    <div class="mySlides"><img src="images/gallery4.jpg" alt=""></div>
-    <div class="mySlides"><img src="images/gallery5.jpg" alt=""></div>
-    <div class="mySlides"><img src="images/gallery6.jpg" alt=""></div>
-
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
-
+<!-- NAVBAR -->
+<div class="navbar glass">
+  <div class="logo">SBFC Organization</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Gallery</a>
+    <a href="#">Notice</a>
+    <a href="#">Contact</a>
   </div>
 </div>
 
-<!-- ================= UPDATES ================= -->
-<section class="updates reveal">
-  <h2>Latest Updates</h2>
-
-  <div class="updates-container">
-
-    <div class="update-card">
-      <i class="fas fa-stethoscope"></i>
-      <h3>Community Health Workshop</h3>
-      <p>Free health screening and wellness workshop.</p>
-    </div>
-
-    <div class="update-card">
-      <i class="fas fa-hands-helping"></i>
-      <h3>Volunteer Appreciation Event</h3>
-      <p>Celebrating our amazing volunteers.</p>
-    </div>
-
-    <div class="update-card">
-      <i class="fas fa-book-open"></i>
-      <h3>Educational Program Launch</h3>
-      <p>After-school tutoring program launch.</p>
-    </div>
-
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-box glass">
+    <h1>Welcome to SBFC Organization</h1>
+    <p>
+      We work together to create opportunities, empower youth, and build stronger communities.
+    </p>
+    <a href="#" class="btn">Explore More</a>
   </div>
 </section>
 
-<!-- ================= CTA ================= -->
-<section class="cta reveal">
-  <h2>Make a Difference Today</h2>
-  <a href="donation.html" class="donate-main">Donate Now</a>
+<!-- SECOND GLASS SECTION -->
+<section class="section">
+  <div class="section-box glass">
+    <h2>Our Mission</h2>
+    <p>
+      Our mission is to empower communities, support youth development, and create sustainable growth through unity and action.
+    </p>
+  </div>
 </section>
-
-<!-- ================= FOOTER ================= -->
-<footer id="contact">
-  <div class="footer-container">
-
-    <div>
-      <h3>SBFC Organization</h3>
-      <p>Dedicated to building stronger communities and empowering people.</p>
-    </div>
-
-    <div>
-      <h3>Quick Links</h3>
-      <a href="#home">Home</a><br>
-      <a href="#gallery">Gallery</a><br>
-      <a href="notice.html">Notice</a><br>
-      <a href="#contact">Contact</a>
-    </div>
-
-    <div>
-      <h3>Contact Info</h3>
-      <p>
-        <i class="fas fa-map-marker-alt"></i>
-        <a href="https://maps.google.com" target="_blank">
-        114/2, Hazi Solimullah Road,<br>
-        East Shyampur, Dhaka-1204
-        </a>
-      </p>
-
-      <p>
-        <i class="fas fa-phone-alt"></i>
-        <a href="tel:+8801992500204">+8801992500204</a>
-      </p>
-
-      <p>
-        <i class="fas fa-envelope"></i>
-        <a href="mailto:sbfcorgs@gmail.com">sbfcorgs@gmail.com</a>
-      </p>
-    </div>
-
-    <div>
-      <h3>Follow Us</h3>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2026 SBFC Organization | All Rights Reserved</p>
-  </div>
-</footer>
-
-<!-- ================= SCRIPT ================= -->
-<script>
-
-/* LOADER */
-window.addEventListener("load",function(){
-  document.getElementById("loader").style.display="none";
-});
-
-/* HAMBURGER */
-function toggleMenu(){
-  document.getElementById("navMenu").classList.toggle("active");
-}
-
-/* SCROLL REVEAL */
-window.addEventListener("scroll",function(){
-  document.querySelectorAll(".reveal").forEach(el=>{
-    let top=el.getBoundingClientRect().top;
-    if(top<window.innerHeight-100){
-      el.classList.add("active");
-    }
-  });
-});
-
-/* GALLERY MODAL */
-let slideIndex=1,autoSlide;
-function openModal(){
-  document.getElementById("myModal").style.display="block";
-  showSlides(slideIndex);
-  autoSlide=setInterval(()=>plusSlides(1),3000);
-}
-function closeModal(){
-  document.getElementById("myModal").style.display="none";
-  clearInterval(autoSlide);
-}
-function plusSlides(n){showSlides(slideIndex+=n);}
-function currentSlide(n){showSlides(slideIndex=n);}
-function showSlides(n){
-  let slides=document.getElementsByClassName("mySlides");
-  if(n>slides.length) slideIndex=1;
-  if(n<1) slideIndex=slides.length;
-  for(let i=0;i<slides.length;i++) slides[i].style.display="none";
-  slides[slideIndex-1].style.display="flex";
-}
-
-/* PROGRESS BAR */
-window.onscroll = function () {
-  let winScroll = document.documentElement.scrollTop;
-  let height =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
-  let scrolled = (winScroll / height) * 100;
-  document.getElementById("progressBar").style.width = scrolled + "%";
-};
-
-</script>
 
 </body>
 </html>
-
-
-
-
