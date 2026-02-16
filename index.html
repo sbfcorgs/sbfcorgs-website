@@ -6,21 +6,27 @@
 <title>SBFC Organization</title>
 
 <link rel="stylesheet" href="style.css">
+
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
 
-<!-- LOADER -->
+<!-- ================= LOADER ================= -->
 <div id="loader">
   <div class="spinner"></div>
 </div>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <header id="navbar">
   <div class="navbar">
+    
     <div class="nav-left">
-      <img src="logo.png">
+      <img src="logo.png" alt="SBFC Logo">
       <span>SBFC Organization</span>
     </div>
 
@@ -29,120 +35,155 @@
     </div>
 
     <div class="nav-right" id="navMenu">
-      <a href="#">Home</a>
-      <a href="gallery.html">Gallery</a>
+      <a href="#home">Home</a>
+      <a href="#gallery">Gallery</a>
       <a href="#">Notice</a>
-      <a href="#">Contact</a>
-      <button class="donate-btn">Donate</button>
+      <a href="#contact">Contact</a>
+      <a href="#" class="donate-btn">Donate</a>
     </div>
 
     <div class="hamburger" onclick="toggleMenu()">
       <i class="fas fa-bars"></i>
     </div>
+
   </div>
 </header>
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Welcome to SBFC Organization</h1>
+    <p>We work together to create opportunities, empower youth, and build stronger communities.</p>
+    <a href="#" class="donate-main">Donate Now</a>
+  </div>
 </section>
 
-<!-- GALLERY -->
+<!-- ================= GALLERY ================= -->
 <section class="gallery reveal" id="gallery">
   <h2>Community Moments</h2>
   <div class="gallery-container">
-    <img src="gallery1.jpg" onclick="openModal();currentSlide(1)">
-    <img src="gallery2.jpg" onclick="openModal();currentSlide(2)">
-    <img src="gallery3.jpg" onclick="openModal();currentSlide(3)">
-    <img src="gallery4.jpg" onclick="openModal();currentSlide(4)">
-    <img src="gallery5.jpg" onclick="openModal();currentSlide(5)">
-    <img src="gallery6.jpg" onclick="openModal();currentSlide(6)">
+    <img src="gallery1.jpg" alt="Community Event 1" onclick="openModal();currentSlide(1)">
+    <img src="gallery2.jpg" alt="Community Event 2" onclick="openModal();currentSlide(2)">
+    <img src="gallery3.jpg" alt="Community Event 3" onclick="openModal();currentSlide(3)">
+    <img src="gallery4.jpg" alt="Community Event 4" onclick="openModal();currentSlide(4)">
+    <img src="gallery5.jpg" alt="Community Event 5" onclick="openModal();currentSlide(5)">
+    <img src="gallery6.jpg" alt="Community Event 6" onclick="openModal();currentSlide(6)">
   </div>
 </section>
 
-<!-- MODAL -->
+<!-- ================= MODAL ================= -->
 <div id="myModal" class="modal">
   <span class="close" onclick="closeModal()">&times;</span>
   <div class="modal-content">
-    <div class="mySlides"><img src="gallery1.jpg"></div>
-    <div class="mySlides"><img src="gallery2.jpg"></div>
-    <div class="mySlides"><img src="gallery3.jpg"></div>
-    <div class="mySlides"><img src="gallery4.jpg"></div>
-    <div class="mySlides"><img src="gallery5.jpg"></div>
-    <div class="mySlides"><img src="gallery6.jpg"></div>
+
+    <div class="mySlides"><img src="gallery1.jpg" alt=""></div>
+    <div class="mySlides"><img src="gallery2.jpg" alt=""></div>
+    <div class="mySlides"><img src="gallery3.jpg" alt=""></div>
+    <div class="mySlides"><img src="gallery4.jpg" alt=""></div>
+    <div class="mySlides"><img src="gallery5.jpg" alt=""></div>
+    <div class="mySlides"><img src="gallery6.jpg" alt=""></div>
+
     <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a>
+
   </div>
 </div>
 
-<!-- UPDATES -->
+<!-- ================= UPDATES ================= -->
 <section class="updates reveal">
   <h2>Latest Updates</h2>
+
   <div class="updates-container">
+
     <div class="update-card">
+      <i class="fas fa-stethoscope"></i>
       <h3>Community Health Workshop</h3>
       <p>Free health screening and wellness workshop.</p>
     </div>
+
     <div class="update-card">
+      <i class="fas fa-hands-helping"></i>
       <h3>Volunteer Appreciation Event</h3>
       <p>Celebrating our amazing volunteers.</p>
     </div>
+
     <div class="update-card">
+      <i class="fas fa-book-open"></i>
       <h3>Educational Program Launch</h3>
       <p>After-school tutoring program launch.</p>
     </div>
+
   </div>
 </section>
 
-<!-- CTA -->
+<!-- ================= CTA ================= -->
 <section class="cta reveal">
   <h2>Make a Difference Today</h2>
-  <button class="donate-main">Donate Now</button>
+  <a href="#" class="donate-main">Donate Now</a>
 </section>
 
-<!-- FOOTER -->
-<footer>
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
   <div class="footer-container">
+
+    <!-- About -->
     <div>
       <h3>SBFC Organization</h3>
-      <p>Dedicated to building stronger communities.</p>
+      <p>Dedicated to building stronger communities and empowering people.</p>
     </div>
+
+    <!-- Quick Links -->
     <div>
       <h3>Quick Links</h3>
-      <p>Home</p>
-      <a href="gallery.html">Gallery</a>
-      <p>Notice</p>
-      <p>Contact</p>
+      <a href="#home">Home</a><br>
+      <a href="#gallery">Gallery</a><br>
+      <a href="#">Notice</a><br>
+      <a href="#contact">Contact</a>
     </div>
-    <div class="footer-box">
-  <h3>Contact Info</h3>
 
-  <p>
-    <i class="fas fa-map-marker-alt"></i>
-    114/2, Hazi Solimullah Road,<br>
-    East Shyampur, Dhaka-1204
-  </p>
-
-  <p>
-    <i class="fas fa-phone-alt"></i>
-    +8801992500204
-  </p>
-
-  <p>
-    <i class="fas fa-envelope"></i>
-    sbfcorgs@gmail.com
-  </p>
-
-</div>
+    <!-- Contact Info -->
     <div>
-      <h3>Follow</h3>
+      <h3>Contact Info</h3>
+
+      <p>
+        <i class="fas fa-map-marker-alt"></i>
+        <a href="https://maps.google.com" target="_blank">
+        114/2, Hazi Solimullah Road,<br>
+        East Shyampur, Dhaka-1204
+        </a>
+      </p>
+
+      <p>
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:+8801992500204">+8801992500204</a>
+      </p>
+
+      <p>
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:sbfcorgs@gmail.com">sbfcorgs@gmail.com</a>
+      </p>
+
+    </div>
+
+    <!-- Social -->
+    <div>
+      <h3>Follow Us</h3>
       <div class="social-icons">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-instagram"></i>
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
+
   </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 SBFC Organization | All Rights Reserved</p>
+  </div>
+
 </footer>
 
+<!-- ================= SCRIPT ================= -->
 <script>
 
 /* LOADER */
@@ -190,5 +231,3 @@ function showSlides(n){
 
 </body>
 </html>
-
-
