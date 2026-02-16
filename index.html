@@ -28,7 +28,7 @@ content:"";
 position:fixed;
 width:100%;
 height:100%;
-background:linear-gradient(135deg,rgba(0,0,0,0.8),rgba(0,0,0,0.5));
+background:linear-gradient(135deg,rgba(0,0,0,0.85),rgba(0,0,0,0.55));
 z-index:-1;
 }
 
@@ -42,8 +42,8 @@ transition:0.4s;
 }
 
 header.scrolled{
-background:rgba(0,0,0,0.85);
-backdrop-filter:blur(10px);
+background:rgba(0,0,0,0.9);
+backdrop-filter:blur(12px);
 }
 
 .navbar{
@@ -112,6 +112,9 @@ padding:20px;
 padding:60px;
 max-width:900px;
 animation:fadeUp 1.2s ease;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+border-radius:20px;
 }
 
 .hero-content h1{
@@ -227,7 +230,7 @@ cursor:pointer;
 /* FOOTER */
 footer{
 margin-top:80px;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,0.9);
 padding:50px 8%;
 }
 
@@ -241,6 +244,17 @@ text-align:left;
 footer a{
 color:white;
 text-decoration:none;
+transition:0.3s;
+}
+
+footer a:hover{
+color:#ffcc00;
+}
+
+.social-icons a{
+display:inline-block;
+margin-right:15px;
+font-size:18px;
 }
 
 .footer-bottom{
@@ -249,7 +263,7 @@ text-align:center;
 font-size:14px;
 }
 
-/* ANIMATION */
+/* SCROLL REVEAL */
 .reveal{
 opacity:0;
 transform:translateY(60px);
@@ -284,6 +298,7 @@ display:none;
 </head>
 <body>
 
+<!-- NAVBAR -->
 <header id="header">
 <div class="navbar">
 <div class="nav-left">
@@ -308,14 +323,16 @@ display:none;
 </div>
 </header>
 
+<!-- HERO -->
 <section class="hero" id="home">
-<div class="hero-content glass">
+<div class="hero-content">
 <h1>Welcome to SBFC Organization</h1>
 <p>We work together to create opportunities, empower youth, and build stronger communities.</p>
 <a href="#gallery" class="btn">Explore More</a>
 </div>
 </section>
 
+<!-- COMMUNITY MOMENTS -->
 <section id="gallery" class="reveal">
 <h2>Community Moments</h2>
 <div class="gallery-container">
@@ -328,6 +345,7 @@ display:none;
 </div>
 </section>
 
+<!-- MISSION -->
 <section id="mission" class="reveal">
 <h2>Our Mission</h2>
 <div class="glass card">
@@ -335,6 +353,7 @@ display:none;
 </div>
 </section>
 
+<!-- IMPACT -->
 <section id="impact" class="reveal">
 <h2>Our Impact</h2>
 <div class="grid-3">
@@ -353,6 +372,7 @@ display:none;
 </div>
 </section>
 
+<!-- UPDATES -->
 <section id="updates" class="reveal">
 <h2>Latest Updates</h2>
 <div class="glass card">
@@ -361,6 +381,7 @@ display:none;
 </div>
 </section>
 
+<!-- CTA -->
 <section class="reveal">
 <h2>Make a Difference Today</h2>
 <div class="glass card">
@@ -370,19 +391,50 @@ display:none;
 </div>
 </section>
 
+<!-- MODAL -->
+<div id="myModal" class="modal">
+<span class="close" onclick="closeModal()">&times;</span>
+<div class="modal-content">
+<img id="modalImg">
+</div>
+</div>
+
+<!-- FOOTER -->
 <footer id="contact">
 <div class="footer-container">
+
 <div>
 <h3>SBFC Organization</h3>
 <p>Dedicated to building stronger communities and empowering people.</p>
 </div>
 
 <div>
-<h3>Contact Info</h3>
-<p>114/2, Hazi Solimullah Road,<br> East Shyampur, Dhaka-1204</p>
-<p>+8801992500204</p>
-<p>sbfcorgs@gmail.com</p>
+<h3>Quick Links</h3>
+<a href="#home">Home</a><br>
+<a href="#gallery">Gallery</a><br>
+<a href="#mission">Mission</a><br>
+<a href="#impact">Impact</a><br>
+<a href="#updates">Updates</a><br>
+<a href="notice.html">Notice</a><br>
+<a href="#contact">Contact</a>
 </div>
+
+<div>
+<h3>Contact Info</h3>
+<p><i class="fas fa-map-marker-alt"></i> 114/2, Hazi Solimullah Road,<br> East Shyampur, Dhaka-1204</p>
+<p><i class="fas fa-phone-alt"></i> +8801992500204</p>
+<p><i class="fas fa-envelope"></i> sbfcorgs@gmail.com</p>
+</div>
+
+<div>
+<h3>Follow Us</h3>
+<div class="social-icons">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+</div>
+</div>
+
 </div>
 
 <div class="footer-bottom">
@@ -393,6 +445,15 @@ display:none;
 <script>
 function toggleMenu(){
 document.getElementById("navLinks").classList.toggle("active");
+}
+
+function openModal(src){
+document.getElementById("myModal").style.display="block";
+document.getElementById("modalImg").src=src;
+}
+
+function closeModal(){
+document.getElementById("myModal").style.display="none";
 }
 
 window.addEventListener("scroll",function(){
