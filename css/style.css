@@ -112,43 +112,26 @@ body{
     cursor:pointer;
 }
 
-/* ================= HERO ================= */
-.hero{
-    height:100vh;
-    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
-    url('https://images.unsplash.com/photo-1509099836639-18ba1795216d');
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:#fff;
-    padding:20px;
+/* ================= HERO SECTION ================= */
+
+.hero {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
 }
 
-.hero-content h1{
-    font-size:48px;
-    margin-bottom:20px;
-    animation:fadeDown 1s ease;
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("../images/hero.jpg") no-repeat center center/cover;
+  animation: zoomHero 20s infinite alternate ease-in-out;
 }
 
-.hero-content p{
-    margin-bottom:20px;
-    animation:fadeUp 1s ease;
-}
-
-.donate-main{
-    background:#00b894;
-    color:#fff;
-    padding:12px 25px;
-    border-radius:25px;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-.donate-main:hover{
-    background:#019170;
+@keyframes zoomHero {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.2); }
 }
 
 /* ================= GALLERY ================= */
@@ -330,3 +313,4 @@ footer{
     .nav-right.active{display:flex;}
     .hamburger{display:block;}
 }
+
