@@ -28,23 +28,22 @@ content:"";
 position:fixed;
 width:100%;
 height:100%;
-background:linear-gradient(135deg,rgba(0,0,0,0.75),rgba(0,0,0,0.5));
+background:linear-gradient(135deg,rgba(0,0,0,0.8),rgba(0,0,0,0.5));
 z-index:-1;
 }
 
-.glass{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,0.2);
-border-radius:20px;
-box-shadow:0 8px 32px rgba(0,0,0,0.4);
-}
-
+/* NAVBAR */
 header{
 position:fixed;
 width:100%;
 top:0;
 z-index:1000;
+transition:0.4s;
+}
+
+header.scrolled{
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(10px);
 }
 
 .navbar{
@@ -80,9 +79,17 @@ color:#ffcc00;
 }
 
 .donate-btn{
-background:linear-gradient(45deg,#ff6b00,#ff0066);
+background:linear-gradient(45deg,#ff6b00,#ff0066,#ff6b00);
+background-size:200% 200%;
+animation:gradientMove 3s ease infinite;
 padding:8px 18px;
 border-radius:30px;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 .hamburger{
@@ -91,6 +98,7 @@ font-size:24px;
 cursor:pointer;
 }
 
+/* HERO */
 .hero{
 height:100vh;
 display:flex;
@@ -103,6 +111,7 @@ padding:20px;
 .hero-content{
 padding:60px;
 max-width:900px;
+animation:fadeUp 1.2s ease;
 }
 
 .hero-content h1{
@@ -124,8 +133,15 @@ color:white;
 font-weight:600;
 display:inline-block;
 margin:5px;
+transition:0.3s;
 }
 
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(255,0,100,0.4);
+}
+
+/* SECTIONS */
 section{
 padding:100px 8%;
 text-align:center;
@@ -136,16 +152,31 @@ font-size:40px;
 margin-bottom:30px;
 }
 
+.glass{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.2);
+border-radius:20px;
+box-shadow:0 8px 32px rgba(0,0,0,0.4);
+}
+
+.card{
+padding:30px;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 35px rgba(0,0,0,0.5);
+}
+
 .grid-3{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
 }
 
-.card{
-padding:30px;
-}
-
+/* GALLERY */
 .gallery-container{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -156,8 +187,14 @@ gap:15px;
 width:100%;
 border-radius:15px;
 cursor:pointer;
+transition:0.4s;
 }
 
+.gallery-container img:hover{
+transform:scale(1.05);
+}
+
+/* MODAL */
 .modal{
 display:none;
 position:fixed;
@@ -187,9 +224,10 @@ font-size:40px;
 cursor:pointer;
 }
 
+/* FOOTER */
 footer{
 margin-top:80px;
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.8);
 padding:50px 8%;
 }
 
@@ -205,15 +243,27 @@ color:white;
 text-decoration:none;
 }
 
-.social-icons a{
-font-size:20px;
-margin-right:15px;
-}
-
 .footer-bottom{
 margin-top:40px;
 text-align:center;
 font-size:14px;
+}
+
+/* ANIMATION */
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
 }
 
 @media(max-width:768px){
@@ -234,19 +284,19 @@ display:none;
 </head>
 <body>
 
-<header class="glass">
+<header id="header">
 <div class="navbar">
 <div class="nav-left">
-<img src="images/logo.png" alt="SBFC Logo">
+<img src="images/logo.png">
 <span>SBFC Organization</span>
 </div>
 
 <div class="nav-links" id="navLinks">
 <a href="#home">Home</a>
+<a href="#gallery">Gallery</a>
 <a href="#mission">Mission</a>
 <a href="#impact">Impact</a>
 <a href="#updates">Updates</a>
-<a href="#gallery">Gallery</a>
 <a href="notice.html">Notice</a>
 <a href="#contact">Contact</a>
 <a href="donation.html" class="donate-btn">Donate</a>
@@ -266,14 +316,26 @@ display:none;
 </div>
 </section>
 
-<section id="mission">
+<section id="gallery" class="reveal">
+<h2>Community Moments</h2>
+<div class="gallery-container">
+<img src="images/gallery1.jpg" onclick="openModal(this.src)">
+<img src="images/gallery2.jpg" onclick="openModal(this.src)">
+<img src="images/gallery3.jpg" onclick="openModal(this.src)">
+<img src="images/gallery4.jpg" onclick="openModal(this.src)">
+<img src="images/gallery5.jpg" onclick="openModal(this.src)">
+<img src="images/gallery6.jpg" onclick="openModal(this.src)">
+</div>
+</section>
+
+<section id="mission" class="reveal">
 <h2>Our Mission</h2>
 <div class="glass card">
 <p>Our mission is to empower individuals, support community development, and create opportunities that foster growth, education, and unity.</p>
 </div>
 </section>
 
-<section id="impact">
+<section id="impact" class="reveal">
 <h2>Our Impact</h2>
 <div class="grid-3">
 <div class="glass card">
@@ -291,7 +353,7 @@ display:none;
 </div>
 </section>
 
-<section id="updates">
+<section id="updates" class="reveal">
 <h2>Latest Updates</h2>
 <div class="glass card">
 <p>Stay tuned for our latest activities, events, and announcements that continue to make a difference in our community.</p>
@@ -299,19 +361,7 @@ display:none;
 </div>
 </section>
 
-<section id="gallery">
-<h2>Community Moments</h2>
-<div class="gallery-container">
-<img src="images/gallery1.jpg" onclick="openModal(this.src)">
-<img src="images/gallery2.jpg" onclick="openModal(this.src)">
-<img src="images/gallery3.jpg" onclick="openModal(this.src)">
-<img src="images/gallery4.jpg" onclick="openModal(this.src)">
-<img src="images/gallery5.jpg" onclick="openModal(this.src)">
-<img src="images/gallery6.jpg" onclick="openModal(this.src)">
-</div>
-</section>
-
-<section>
+<section class="reveal">
 <h2>Make a Difference Today</h2>
 <div class="glass card">
 <p>Your support helps us continue our mission and create lasting positive change in our community.</p>
@@ -319,13 +369,6 @@ display:none;
 <a href="#contact" class="btn">Get Involved</a>
 </div>
 </section>
-
-<div id="myModal" class="modal">
-<span class="close" onclick="closeModal()">&times;</span>
-<div class="modal-content">
-<img id="modalImg">
-</div>
-</div>
 
 <footer id="contact">
 <div class="footer-container">
@@ -335,30 +378,10 @@ display:none;
 </div>
 
 <div>
-<h3>Quick Links</h3>
-<a href="#home">Home</a><br>
-<a href="#mission">Mission</a><br>
-<a href="#impact">Impact</a><br>
-<a href="#updates">Updates</a><br>
-<a href="#gallery">Gallery</a><br>
-<a href="notice.html">Notice</a><br>
-<a href="#contact">Contact</a>
-</div>
-
-<div>
 <h3>Contact Info</h3>
-<p><i class="fas fa-map-marker-alt"></i> 114/2, Hazi Solimullah Road,<br> East Shyampur, Dhaka-1204</p>
-<p><i class="fas fa-phone-alt"></i> +8801992500204</p>
-<p><i class="fas fa-envelope"></i> sbfcorgs@gmail.com</p>
-</div>
-
-<div>
-<h3>Follow Us</h3>
-<div class="social-icons">
-<a href="#"><i class="fab fa-facebook-f"></i> Facebook</a><br><br>
-<a href="#"><i class="fab fa-instagram"></i> Instagram</a><br><br>
-<a href="#"><i class="fab fa-youtube"></i> YouTube</a>
-</div>
+<p>114/2, Hazi Solimullah Road,<br> East Shyampur, Dhaka-1204</p>
+<p>+8801992500204</p>
+<p>sbfcorgs@gmail.com</p>
 </div>
 </div>
 
@@ -371,13 +394,18 @@ display:none;
 function toggleMenu(){
 document.getElementById("navLinks").classList.toggle("active");
 }
-function openModal(src){
-document.getElementById("myModal").style.display="block";
-document.getElementById("modalImg").src=src;
+
+window.addEventListener("scroll",function(){
+document.getElementById("header").classList.toggle("scrolled",window.scrollY>50);
+
+document.querySelectorAll(".reveal").forEach(function(el){
+var windowHeight=window.innerHeight;
+var elementTop=el.getBoundingClientRect().top;
+if(elementTop<windowHeight-100){
+el.classList.add("active");
 }
-function closeModal(){
-document.getElementById("myModal").style.display="none";
-}
+});
+});
 </script>
 
 </body>
